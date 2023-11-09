@@ -1,0 +1,33 @@
+provera dns
+za ip koji uspostavlja konekciju proveramo dns upit dA LI JE CISTA; pa akacije log ili alarm
+
+nakon vise ip adresa da se prekinu nesto>???
+
+
+
+
+
+Napredni operativni sistemi - 2. projekat
+
+Poštovani profesore,
+
+
+Imam pitanje vezano za drugi projekat iz predmeta Napredni operativni sistemi. Da li je moguće izmeniti projekat kako bi se povećala njegova praktična vrednost u oblasti sajber bezbednosti?
+Tačnije, da li je moguće da se umesto se prikupljanja vrednosti sa senzora, prikupljaju informacije o malicioznosti svake IP adrese koja uspostavlja komunikaciju sa IoT uređajem. Informacije o zlonamernim IP adresama bi dolazile iz 3rd party servisa koji pružaju ovu vrstu usluge. U slučaju identifikacije malicioznosti, sistem bi blokirao konkretnu IP adresu i aktivirao zvučni ili svetlosni alarm.
+
+
+
+
+
+
+Konkretno, ? Informacije o zlonamernosti bi se dobijale od 3rd party servisa koju pružaju ovu uslugu. U slučaju malicioznosti bi se blokirala konkretna IP adresa i upalio zvučni ili svetlosni alarm.
+
+
+
+Želeo bih da postavim pitanje u vezi sa drugim projektom u okviru predmeta Napredni operativni sistemi. Da li je moguće razmotriti mogućnost modifikacije projekta kako bi se povećala njegova praktična relevantnost u oblasti sajber bezbednosti?
+
+ razmatram ideju da umesto prikupljanja podataka sa senzora, projektom se bavi prikupljanjem informacija o malicioznosti svake IP adrese koja uspostavlja komunikaciju sa IoT uređajem.
+
+
+S poštovanjem,
+Miloš Jovanović 1564
