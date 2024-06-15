@@ -1,4 +1,3 @@
-#include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
 
@@ -16,7 +15,8 @@ static void dfs_child_process(struct task_struct *task)
 {
     struct task_struct *child;
 
-    list_for_each_entry(child, &task->children, sibling) {
+    // list_for_each_entry(child, &task->children, sibling) {
+    list_for_each_entry(child, &task->children, children) {
         dfs_child_process(child);
     }
     show_process_info(task);

@@ -10,22 +10,29 @@
 
 #define __NR_mysyscall 548
 
-
 long call(int p_id)
 {
     return syscall(__NR_mysyscall, p_id);
 }
 
+#define __NR_mynewsyscall 549
 
-int main(){
+void newcall(int p_id)
+{
+    syscall(__NR_mynewsyscall, p_id);
+}
 
-    printf("real pid %d\n",getpid());
-    printf("pre syscall\n");
-    
-    // printf("my pid %d\n",syscall(584));  
-    printf("my pid %d\n",call(1));
+int main(int argc, char const *argv[] )
+{
+    if(argc!=2)
+        exit(0);
+
+    int pid=atoi(argv[1]);
+    printf("dfs for pid: %d\n",pid);
+
+
+    newcall(pid);
     printf("%s\n", strerror(errno));
-    printf("after syscall\n");
 
     return 0;
 }

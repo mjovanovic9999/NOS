@@ -12,7 +12,7 @@ int main()
     printf("parent pid %d\n", getpid());
 
     srand(time(NULL));
-    parent_fork = (rand() % 4) + 2;
+    parent_fork = (rand() % 2) + 2;
     // printf("depth1 siblings %d\n",parent_fork);
 
     for (int i = 0; i < parent_fork; i++)
@@ -21,11 +21,11 @@ int main()
         if (pid == 0)
         { // dete
             srand(time(NULL) ^ getpid());
-            child_num = (rand() % 4) + 2;
+            child_num = (rand() % 2) + 2;
 
             // printf("depth2 siblings %d\n",child_num);
 
-            for (int j = 0; j < child_num - 1; j++)
+            for (int j = 0; j < child_num; j++)
             {
                 pid = fork();
                 if (pid == 0)
