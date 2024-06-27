@@ -15,13 +15,6 @@ long call(int p_id)
     return syscall(__NR_mysyscall, p_id);
 }
 
-#define __NR_mynewsyscall 549
-
-void newcall(int p_id)
-{
-    syscall(__NR_mynewsyscall, p_id);
-}
-
 int main(int argc, char const *argv[] )
 {
     if(argc!=2)
@@ -31,7 +24,7 @@ int main(int argc, char const *argv[] )
     printf("dfs for pid: %d\n",pid);
 
 
-    newcall(pid);
+    call(pid);
     printf("%s\n", strerror(errno));
 
     return 0;
