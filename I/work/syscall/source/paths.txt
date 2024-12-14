@@ -1,0 +1,9 @@
+/home/mj/linux/kernel/sys.c
+
+/home/mj/linux/arch/x86/entry/syscalls/syscall_64.tbl
+
+/home/mj/linux/include/linux/syscalls.h
+
+
+463
+process_tree

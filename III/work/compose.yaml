@@ -1,0 +1,66 @@
+services:
+
+  weather-data-service:
+    build: ./weatherData
+    image: "weather-data:latest"
+
+    environment:
+      - FLASK_SERVER_PORT=9090
+    depends_on:
+      - mongodb-data-service
+      - rabbitmq-service
+    networks:
+      - mynetwork
+    ports:
+    - "9090:9090"
+    
+    # restart: always
+    # labels:
+      # - kompose.service.type=LoadBalancer    
+
+  mongodb-data-service:
+    image: "mongo:8"
+    container_name: mongodb-data-service
+    networks:
+      - mynetwork
+    # labels:
+      # - kompose.service.type=LoadBalancer    
+
+  rabbitmq-service:
+    image: "rabbitmq:4.0.4-management"
+    hostname: rabbitmq-service
+    container_name: rabbitmq-service
+    networks:
+      - mynetwork
+    ports:
+      - "5552:5552"
+      - "15672:15672"
+      - "5672:5672"
+      
+  weather-analysis-service:
+    build: ./weatherAnalysis
+    image: "weather-analysis:latest"
+
+    environment:
+      - FLASK_SERVER_PORT=9091
+    depends_on:
+      - mongodb-analysis-service 
+      - rabbitmq-service
+      - weather-data-service
+
+    networks:
+      - mynetwork
+    ports:
+      - "9091:9091"
+     
+
+  mongodb-analysis-service:
+    image: "mongo:8"
+    container_name: mongodb-analysis-service
+    networks:
+      - mynetwork
+    # labels:
+      # - kompose.service.type=LoadBalancer      
+      
+networks:
+  mynetwork:

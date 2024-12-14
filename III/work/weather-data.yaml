@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-data-deployment
+  labels:
+    app: weather-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-data
+  template:
+    metadata:
+      labels:
+        app: weather-data
+    spec:
+      containers:
+      - name: weather-data
+        imagePullPolicy: IfNotPresent
+        image: weather-data:latest
+        env:
+        - name: FLASK_SERVER_PORT
+          value: "9090"
+        ports:
+        - containerPort: 9090
+        resources:
+          limits:
+            cpu: 20m
+          requests:
+            cpu: 10m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-data-service
+spec:
+  type: NodePort
+  selector:
+    app: weather-data
+  ports:
+  - port: 9090
+    targetPort: 9090

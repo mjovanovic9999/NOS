@@ -1,4 +1,4 @@
-obj-m += mymodule.o
+obj-m += process_tree_module.o
 
 PWD := $(CURDIR)
 

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-analysis-deployment
+  labels:
+    app: mongo-analysis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb-analysis
+  template:
+    metadata:
+      labels:
+        app: mongodb-analysis
+    spec:
+      containers:
+      - name: mongodb-analysis
+        image: mongo:8
+        ports:
+        - containerPort: 27017
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-analysis-service
+spec:
+  selector:
+    app: mongodb-analysis
+  ports:
+  - port: 27017

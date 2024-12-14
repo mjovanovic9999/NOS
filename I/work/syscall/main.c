@@ -1,18 +1,14 @@
-#include <linux/kernel.h>
-#include <sys/syscall.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/wait.h>
-#include <time.h>
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
 
-#define __NR_mysyscall 548
+#define process_tree 463
 
 long call(int p_id)
 {
-    return syscall(__NR_mysyscall, p_id);
+    return syscall(process_tree, p_id);
 }
 
 int main(int argc, char const *argv[] )
@@ -21,8 +17,7 @@ int main(int argc, char const *argv[] )
         exit(0);
 
     int pid=atoi(argv[1]);
-    printf("dfs for pid: %d\n",pid);
-
+    printf("DFS for pid: %d\n",pid);
 
     call(pid);
     printf("%s\n", strerror(errno));
