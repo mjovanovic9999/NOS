@@ -3,7 +3,7 @@ I/.~lock.nos1.odg#
 I/work/demoProcess/main.out
 
 I/work/module/*
-!I/work/module/mymodule.c
+!I/work/module/process_tree_module.c
 !I/work/module/Makefile
 
 
