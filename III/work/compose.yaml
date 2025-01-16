@@ -13,18 +13,13 @@ services:
       - mynetwork
     ports:
     - "9090:9090"
-    
-    # restart: always
-    # labels:
-      # - kompose.service.type=LoadBalancer    
+
 
   mongodb-data-service:
     image: "mongo:8"
     container_name: mongodb-data-service
     networks:
       - mynetwork
-    # labels:
-      # - kompose.service.type=LoadBalancer    
 
   rabbitmq-service:
     image: "rabbitmq:4.0.4-management"
@@ -59,8 +54,6 @@ services:
     container_name: mongodb-analysis-service
     networks:
       - mynetwork
-    # labels:
-      # - kompose.service.type=LoadBalancer      
       
 networks:
   mynetwork:
